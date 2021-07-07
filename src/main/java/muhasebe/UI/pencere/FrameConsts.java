@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package muhasebe.UI;
+package muhasebe.UI.pencere;
 
 /**
  *
  * @author kaan
  */
 public class FrameConsts {
-    protected static final int WIDHT = 1000;
-    protected static final int HEIGHT = 600;
+    public static final int WIDHT = 1000;
+    public static final int HEIGHT = 600;
 }

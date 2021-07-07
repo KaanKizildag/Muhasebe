@@ -5,6 +5,8 @@
  */
 package muhasebe.UI;
 
+import muhasebe.UI.pencere.CustomFrame;
+
 
 /**
  *

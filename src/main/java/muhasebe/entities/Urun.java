@@ -67,4 +67,5 @@ public class Urun {
     public String toString() {
         return "tutar: " + tutar + " kdv: " + kdv + " tahsilat " + tahsilat;
     }
+
 }

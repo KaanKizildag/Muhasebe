@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package muhasebe.UI;
+package muhasebe.UI.ana_panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import muhasebe.UI.table.CustomTable;
+import muhasebe.UI.pencere.FrameConsts;
+import muhasebe.UI.ana_panel.table.CustomTable;
 
 /**
  *
@@ -31,14 +32,9 @@ public class MainPane extends JPanel {
         pane.setSize(this.getSize());
         add(pane,BorderLayout.CENTER);
         
-        // geçici kodlar
         
-        JButton button = new JButton("Button");
-        button.setSize(200,50);
-        button.setBackground(Color.red);
-        add(button, BorderLayout.SOUTH);
+        add(new AltPanel(), BorderLayout.SOUTH);
         
-        // geçici kodlar sonu
         
         setBackground(Color.BLACK);
     }

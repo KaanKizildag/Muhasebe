@@ -7,7 +7,6 @@ package muhasebe.UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -31,15 +30,16 @@ public class MainPane extends JPanel {
         setSize(FrameConsts.WIDHT, FrameConsts.HEIGHT);
         pane.setSize(this.getSize());
         add(pane,BorderLayout.CENTER);
-        JButton button = new JButton("Ekle");
-        button.setSize(150,50);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                CustomTable.getInstance().addRow(1, "Kaan", "Kahramanmaş", "marul", 15, 156);
-            }
-        });
-        add(button,BorderLayout.WEST);
+        
+        // geçici kodlar
+        
+        JButton button = new JButton("Button");
+        button.setSize(200,50);
+        button.setBackground(Color.red);
+        add(button, BorderLayout.SOUTH);
+        
+        // geçici kodlar sonu
+        
         setBackground(Color.BLACK);
     }
 

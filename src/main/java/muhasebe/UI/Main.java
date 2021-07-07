@@ -5,13 +5,6 @@
  */
 package muhasebe.UI;
 
-import java.util.List;
-import muhasebe.entities.Musteri;
-import muhasebe.entities.Tur;
-import muhasebe.entities.Urun;
-import muhasebe.repository.Database;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -32,7 +25,7 @@ public class Main {
 //
 //        musteri.setOncekiKalan(0);
 //        musteri.setTelefon("6565466");
-//
+////
 //        Database database = Database.getInstance();
 //        database.insertCustomer(musteri);
 //        List<Musteri> musteriler = database.getCustomers();

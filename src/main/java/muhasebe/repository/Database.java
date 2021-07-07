@@ -8,6 +8,7 @@ package muhasebe.repository;
 import java.util.List;
 import muhasebe.entities.Musteri;
 import muhasebe.entities.Urun;
+import muhasebe.entities.UrunIsmi;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,7 +19,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class Database {
 
-    private SessionFactory factory;
+    private final SessionFactory factory;
 
     private static Database INSTANCE;
 
@@ -35,48 +36,82 @@ public class Database {
     }
 
     public void insertCustomer(Musteri musteri) {
-        Session session = factory.getCurrentSession();
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
 
-        session.beginTransaction();
-        session.persist(musteri.getTur());
-        session.persist(musteri);
+            session.persist(musteri.getTur());
+            session.persist(musteri);
 
-        session.getTransaction().commit();
-        session.close();
+            session.getTransaction().commit();
+        }
     }
 
     public List<Musteri> getCustomers() {
-        Session session = factory.getCurrentSession();
         List<Musteri> musteriler;
-        session.beginTransaction();
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
 
-        musteriler = session.createQuery("from Musteri").list();
+            musteriler = session.createQuery("from Musteri").list();
 
-        session.getTransaction().commit();
-        session.close();
+            session.getTransaction().commit();
+        }
         return musteriler;
     }
 
     public void insertProduct(Urun urun) {
-         Session session = factory.getCurrentSession();
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
 
-        session.beginTransaction();
-//        session.persist(urun.getMusteri());
-        session.persist(urun);
+            session.persist(urun);
 
-        session.getTransaction().commit();
-        session.close();
+            session.getTransaction().commit();
+        }
     }
-    
-     public List<Urun> getProducts() {
-        Session session = factory.getCurrentSession();
+
+    public List<Urun> getProducts() {
         List<Urun> urunler;
-        session.beginTransaction();
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
 
-        urunler = session.createQuery("from Urun").list();
+            urunler = session.createQuery("from Urun").list();
 
-        session.getTransaction().commit();
-        session.close();
+            session.getTransaction().commit();
+        }
         return urunler;
     }
+
+    public Musteri getById(int id) {
+        Musteri musteri;
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+
+            musteri = session.byId(Musteri.class).getReference(id);
+
+            session.getTransaction().commit();
+        }
+        return musteri;
+    }
+
+    public void insertProductName(UrunIsmi urunIsmi) {
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+
+            session.persist(urunIsmi);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    public List<UrunIsmi> getAllProductNames() {
+        List<UrunIsmi> productNames;
+        try ( Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+
+            productNames = session.createQuery("from UrunIsmi").list();
+
+            session.getTransaction().commit();
+        }
+        return productNames;
+    }
+
 }

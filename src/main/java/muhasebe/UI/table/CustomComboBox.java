@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableCellRenderer;
+import muhasebe.service.concretes.ProductNameServiceImpl;
 
 /**
  *
@@ -17,10 +18,18 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class CustomComboBox extends JComboBox<String> {
 
     public CustomComboBox() {
-        super(new String[]{"Marul", "Limon", "Ay Çekirdeği"});
+        super();
         setBackground(Color.lightGray);
         setForeground(Color.darkGray);
+
+        new Thread(() -> {
+            ProductNameServiceImpl.getInstance().getAll().forEach((productName) -> {
+                addItem(productName.getIsim());
+            });
+        }).start();
+
     }
+
 }
 
 class MyComboBoxEditor extends DefaultCellEditor {
@@ -34,7 +43,7 @@ class MyTextBoxRenderer extends DefaultTableCellRenderer {
 
     public MyTextBoxRenderer() {
         super();
-        
+
     }
 
 }

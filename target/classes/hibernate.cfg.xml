@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:sqlite:muhasebe.db</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="current_session_context_class">thread</property>
+        
+        <property name="hbm2ddl.auto">create</property> 
+        <mapping class="muhasebe.entities.Kasa"/>
+        <mapping class="muhasebe.entities.KasaHareket"/> 
+        <mapping class="muhasebe.entities.Musteri"/>
+        <mapping class="muhasebe.entities.Tur"/>
+        <mapping class="muhasebe.entities.Urun"/>
+        <mapping class="muhasebe.entities.UrunIsmi"/>
+        <!-- Bu alan önemli -->
+        <!-- DB schema will be updated if needed
+            <property name="hbm2ddl.auto">update</property> 
+        -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

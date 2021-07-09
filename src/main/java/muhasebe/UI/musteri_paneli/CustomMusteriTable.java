@@ -44,6 +44,8 @@ public class CustomMusteriTable extends JTable {
         setBackground(TableConst.BACKGROUND_COLOR);
         setFont(TableConst.FONT);
         setForeground(TableConst.FOREGROUND_COLOR);
+        setSelectionBackground(TableConst.SELECTION_BACKGROUND_COLOR);
+        setSelectionForeground(TableConst.SELECTION_FOREGROUND_COLOR);
 
         new Thread(() -> {
             loadItems();

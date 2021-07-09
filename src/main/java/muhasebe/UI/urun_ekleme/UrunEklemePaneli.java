@@ -8,15 +8,11 @@ package muhasebe.UI.urun_ekleme;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import muhasebe.UI.ana_panel.product_observer.Observer;
 import muhasebe.UI.ana_panel.table.TableConst;
 import muhasebe.entities.UrunIsmi;
-import muhasebe.repository.Database;
 import java.util.ArrayList;
-import muhasebe.UI.pencere.FrameConsts;
 
 /**
  *
@@ -29,20 +25,20 @@ public class UrunEklemePaneli extends JPanel {
     public UrunEklemePaneli() {
         super();
         setBackground(TableConst.BACKGROUND_COLOR);
-        JLabel label = FrameConsts.createLabel("Ürün adı giriniz:");
-        add(label);
-
-        JTextField textField = FrameConsts.createTextField("ürün adı giriniz.");
-        
-        add(textField);
+//        JLabel label = FrameConsts.createLabel("Ürün adı giriniz:");
+//        add(label);
+//        setLayout(new BorderLayout());
+//        JTextField textField = FrameConsts.createTextField("ürün adı giriniz.");
+//        
+        add(new FormPanel());
 
         JButton button = new JButton("Ekle");
         button.setBackground(Color.green);
         button.addActionListener((arg0) -> {
-            UrunIsmi urun = new UrunIsmi();
-            urun.setIsim(textField.getText());
-            Database.getInstance().insertProductName(urun);
-            System.out.println(textField.getText() + " başarıyla eklendi");
+//            UrunIsmi urun = new UrunIsmi();
+            //urun.setIsim(textField.getText());
+            //Database.getInstance().insertProductName(urun);
+            //System.out.println(textField.getText() + " başarıyla eklendi");
         });
 
         add(button);

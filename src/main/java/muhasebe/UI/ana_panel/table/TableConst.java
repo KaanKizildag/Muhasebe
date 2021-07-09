@@ -17,4 +17,7 @@ public class TableConst {
     public static final Font FONT = new Font(Font.MONOSPACED, Font.PLAIN, 18);
     public static final Color BACKGROUND_COLOR = Color.DARK_GRAY;
     public static final Color FOREGROUND_COLOR = Color.LIGHT_GRAY;
+    public static final Color HOVER_COLOR = new Color(50, 50, 50);
+    public static final Color SELECTION_FOREGROUND_COLOR = Color.white;
+    public static final Color SELECTION_BACKGROUND_COLOR = Color.red;
 }

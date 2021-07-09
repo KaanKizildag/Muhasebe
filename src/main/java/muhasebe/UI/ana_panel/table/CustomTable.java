@@ -90,10 +90,25 @@ public class CustomTable extends JTable {
         setBackground(TableConst.BACKGROUND_COLOR);
         setFont(TableConst.FONT);
         setForeground(TableConst.FOREGROUND_COLOR);
-        
+        setSelectionBackground(TableConst.SELECTION_BACKGROUND_COLOR);
+        setSelectionForeground(TableConst.SELECTION_FOREGROUND_COLOR);
         new Thread(() -> {
             loadData();
         }).start();
+        
+        addPropertyChangeListener((arg0) -> {
+           try{
+               int row = getSelectedRow();
+               int adet = (int) getValueAt(row, COL_ADET);
+               float fiyat = (float) getValueAt(row, COL_BIRIM_FIYATI);
+               setValueAt(adet * fiyat, row, COL_TUTAR);
+               
+           }catch(Exception e){
+               // do nothing
+           }
+            
+        });
+        
     }
 
     private void addRow(
@@ -137,6 +152,6 @@ public class CustomTable extends JTable {
             Database.getInstance().insertProduct(urun);
             System.out.println("ürün eklendi");
         }
-
     }
+    
 }

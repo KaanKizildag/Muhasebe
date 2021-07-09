@@ -1,3 +1,0 @@
-# Ön muhasebe programı
-
----

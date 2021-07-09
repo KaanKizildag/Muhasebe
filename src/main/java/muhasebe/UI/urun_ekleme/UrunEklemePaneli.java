@@ -16,6 +16,7 @@ import muhasebe.UI.ana_panel.table.TableConst;
 import muhasebe.entities.UrunIsmi;
 import muhasebe.repository.Database;
 import java.util.ArrayList;
+import muhasebe.UI.pencere.FrameConsts;
 
 /**
  *
@@ -28,18 +29,11 @@ public class UrunEklemePaneli extends JPanel {
     public UrunEklemePaneli() {
         super();
         setBackground(TableConst.BACKGROUND_COLOR);
-        JLabel label = new JLabel("Ürün adı: ");
-
-        label.setFont(TableConst.FONT);
-        label.setForeground(TableConst.FOREGROUND_COLOR);
-        label.setBackground(TableConst.BACKGROUND_COLOR);
-
+        JLabel label = FrameConsts.createLabel("Ürün adı giriniz:");
         add(label);
 
-        JTextField textField = new JTextField("Ürün adı giriniz");
-        textField.setFont(TableConst.FONT);
-        textField.setForeground(TableConst.FOREGROUND_COLOR);
-        textField.setBackground(TableConst.BACKGROUND_COLOR);
+        JTextField textField = FrameConsts.createTextField("ürün adı giriniz.");
+        
         add(textField);
 
         JButton button = new JButton("Ekle");

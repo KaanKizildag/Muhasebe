@@ -37,7 +37,7 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="FrameConsts.createLabel()"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="tbxProductName">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="&quot;bir &#x15f;eyler&quot;" type="code"/>
@@ -63,7 +63,7 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="FrameConsts.createLabel()"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="tbxPrice">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="&quot;&#xfc;r&#xfc;n fiyat&#x131;&quot;" type="code"/>
@@ -96,7 +96,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="FrameConsts.createButton(Color.green, (l) -&gt; {System.out.println(&quot;veri taban&#x131;na kaydedildi&quot;);})"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="FrameConsts.createButton(Color.green, (l) -&gt; {addProduct();})"/>
       </AuxValues>
     </Component>
   </SubComponents>

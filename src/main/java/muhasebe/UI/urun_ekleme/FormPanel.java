@@ -6,8 +6,11 @@
 package muhasebe.UI.urun_ekleme;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import muhasebe.UI.ana_panel.table.TableConst;
 import muhasebe.UI.pencere.FrameConsts;
+import muhasebe.repository.Database;
+import muhasebe.entities.UrunIsmi;
 
 /**
  *
@@ -32,11 +35,11 @@ public class FormPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = FrameConsts.createLabel();
-        jTextField1 = FrameConsts.createTextField();
+        tbxProductName = FrameConsts.createTextField();
         jLabel5 = FrameConsts.createLabel();
-        jTextField3 = FrameConsts.createTextField();
+        tbxPrice = FrameConsts.createTextField();
         jLabel4 = FrameConsts.createLabel();
-        jButton1 = FrameConsts.createButton(Color.green, (l) -> {System.out.println("veri tabanına kaydedildi");});
+        jButton1 = FrameConsts.createButton(Color.green, (l) -> {addProduct();});
 
         setBackground(TableConst.BACKGROUND_COLOR);
         setLayout(new java.awt.GridLayout(3, 2));
@@ -45,17 +48,17 @@ public class FormPanel extends javax.swing.JPanel {
         jLabel1.setPreferredSize(new java.awt.Dimension(200, 50));
         add(jLabel1);
 
-        jTextField1.setText("bir şeyler");
-        jTextField1.setPreferredSize(new java.awt.Dimension(200, 50));
-        add(jTextField1);
+        tbxProductName.setText("bir şeyler");
+        tbxProductName.setPreferredSize(new java.awt.Dimension(200, 50));
+        add(tbxProductName);
 
         jLabel5.setText("ürün fiyatı");
         jLabel5.setPreferredSize(new java.awt.Dimension(200, 50));
         add(jLabel5);
 
-        jTextField3.setText("ürün fiyatı");
-        jTextField3.setPreferredSize(new java.awt.Dimension(200, 50));
-        add(jTextField3);
+        tbxPrice.setText("ürün fiyatı");
+        tbxPrice.setPreferredSize(new java.awt.Dimension(200, 50));
+        add(tbxPrice);
 
         jLabel4.setText("Kaydet");
         jLabel4.setPreferredSize(new java.awt.Dimension(200, 50));
@@ -71,7 +74,23 @@ public class FormPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField tbxPrice;
+    private javax.swing.JTextField tbxProductName;
     // End of variables declaration//GEN-END:variables
+
+    private void addProduct(){
+        String productName = tbxProductName.getText();
+        float price = Float.parseFloat(tbxPrice.getText());
+        UrunIsmi urun = new UrunIsmi();
+        urun.setIsim(productName);
+        Database.getInstance().insertProductName(urun);
+        JOptionPane.showMessageDialog(null, "Ürün eklendi");
+        clearTextFields();
+    }
+
+    private void clearTextFields() {
+        tbxProductName.setText("");
+        tbxPrice.setText("");
+    }
+    
 }
